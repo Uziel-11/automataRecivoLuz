@@ -22,6 +22,7 @@ public class controllerHome {
 
 
     public void btnAceptar(){
+
         String cadena = seccion1.getText()+seccion2.getText()+seccion3.getText()+seccion4.getText()+seccion5.getText();
 
         model.particion(cadena);
