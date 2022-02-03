@@ -1,14 +1,18 @@
 package automataRecivoLuz.models;
 
+import automataRecivoLuz.controllers.controllerHome;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class modelHome {
     List<String> list = new ArrayList<String>();
     String[] diccionario = {"0","1","2","3","4","5","6","7","8","9"};
+    String[] result = new String[3];
 
 
-    public void particion(String cadena){
+    public String[] particion(String cadena){
+        result[0] = "error";
 
         for (int i=0; i<cadena.length(); i++){
             list.add(cadena.substring(i,i+1));
@@ -22,6 +26,7 @@ public class modelHome {
             q1();
         }
 
+        return result;
     }
 
     public void q1(){
@@ -29,6 +34,7 @@ public class modelHome {
             System.out.println("pasando a q2");
             q2alq13();
         }
+        list.clear();
     }
     public void q2alq13(){
         int contadorError = 0;
@@ -171,6 +177,41 @@ public class modelHome {
             System.out.println("algunos caracteres no son correctos");
         }
     }
-    public void q30(){}
+    public void q30(){
+        String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre",
+        "Noviembre","Diciembre"};
+        int mes = Integer.parseInt(list.get(16)+Integer.parseInt(list.get(17)));
+        String dia = list.get(18)+list.get(19);
+        String anio = "20"+list.get(14)+list.get(15);
+        String cantidad = "";
+        String servicio = "";
+
+
+        for (int i=2; i<=13; i++){
+            servicio += list.get(i);
+
+        }
+
+        System.out.print("No. de Servicio: "+servicio);
+
+        for (int l=20; l<29; l++){
+            if (list.get(l).equals("0")){
+
+            }else {
+                for (int j=l; j<29; j++){
+                    cantidad += list.get(j);
+                }
+                break;
+            }
+
+        }
+
+        System.out.println("\n Fecha Limite de Pago: "+dia+" "+meses[mes-1]+" "+anio);
+        System.out.println("La cantidad a Pagar es: $"+cantidad);
+
+        result[0] = servicio;
+        result[1]=dia+" de "+meses[mes-1]+" "+anio;
+        result[2] = "$"+cantidad;
+    }
 
 }
