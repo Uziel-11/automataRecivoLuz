@@ -76,6 +76,10 @@ public class modelHome {
         boolean error = true;
         for (String s : diccionario) {
             if (list.get(15).equals(s)) {
+                if(list.get(14).equals("2") && Integer.parseInt(list.get(15))>2){
+                    System.out.println("no puede ser mayor al año 2022");
+                    break;
+                }
                 error = false;
                 q16();
             }
