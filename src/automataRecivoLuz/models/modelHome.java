@@ -180,38 +180,41 @@ public class modelHome {
     public void q30(){
         String[] meses = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre",
         "Noviembre","Diciembre"};
-        int mes = Integer.parseInt(list.get(16)+Integer.parseInt(list.get(17)));
-        String dia = list.get(18)+list.get(19);
-        String anio = "20"+list.get(14)+list.get(15);
-        String cantidad = "";
-        String servicio = "";
+        if(list.size() == 30) {
+
+            int mes = Integer.parseInt(list.get(16) + Integer.parseInt(list.get(17)));
+            String dia = list.get(18) + list.get(19);
+            String anio = "20" + list.get(14) + list.get(15);
+            String cantidad = "";
+            String servicio = "";
 
 
-        for (int i=2; i<=13; i++){
-            servicio += list.get(i);
+            for (int i = 2; i <= 13; i++) {
+                servicio += list.get(i);
 
-        }
-
-        System.out.print("No. de Servicio: "+servicio);
-
-        for (int l=20; l<29; l++){
-            if (list.get(l).equals("0")){
-
-            }else {
-                for (int j=l; j<29; j++){
-                    cantidad += list.get(j);
-                }
-                break;
             }
 
+            System.out.print("No. de Servicio: " + servicio);
+
+            for (int l = 20; l < 29; l++) {
+                if (list.get(l).equals("0")) {
+
+                } else {
+                    for (int j = l; j < 29; j++) {
+                        cantidad += list.get(j);
+                    }
+                    break;
+                }
+
+            }
+
+            System.out.println("\n Fecha Limite de Pago: " + dia + " " + meses[mes - 1] + " " + anio);
+            System.out.println("La cantidad a Pagar es: $" + cantidad);
+
+            result[0] = servicio;
+            result[1] = dia + " de " + meses[mes - 1] + " " + anio;
+            result[2] = "$" + cantidad;
         }
-
-        System.out.println("\n Fecha Limite de Pago: "+dia+" "+meses[mes-1]+" "+anio);
-        System.out.println("La cantidad a Pagar es: $"+cantidad);
-
-        result[0] = servicio;
-        result[1]=dia+" de "+meses[mes-1]+" "+anio;
-        result[2] = "$"+cantidad;
     }
 
 }
